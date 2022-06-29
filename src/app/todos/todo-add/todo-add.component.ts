@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/app.reducer';
-import { actions } from '../todos.actions';
+import { todoActions } from '../todos.actions';
 
 @Component({
   selector: 'app-todo-add',
@@ -22,7 +22,7 @@ export class TodoAddComponent implements OnInit {
 
   agregar() {
     if (this.txtInput.invalid) { return; }
-    this.store.dispatch(actions.crear({ texto: this.txtInput.value }));
+    this.store.dispatch(todoActions.crear({ texto: this.txtInput.value }));
     this.txtInput.reset()
   }
 
